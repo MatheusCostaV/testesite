@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pra Gica</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #ffe5e5;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #b22222;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            margin: 10px;
+            cursor: pointer;
+            border: 2px solid #b22222;
+            background-color: #ff9999;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff4d4d;
+            color: white;
+        }
+
+        #gif {
+            margin-top: 30px;
+            display: none;
+            text-align: center;
+        }
+
+        #gif img {
+            max-width: 300px;
+            border-radius: 10px;
+        }
+
+        #message {
+            font-size: 2em;
+            color: #b22222;
+            margin-bottom: 10px;
+        }
+
+        /* Responsividade para telas pequenas */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            button {
+                padding: 10px 20px;
+                font-size: 1em;
+            }
+
+            #gif img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            #message {
+                font-size: 1.5em;
+            }
+        }
+
+        /* Responsividade para telas muito pequenas */
+        @media (max-width: 400px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            button {
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+
+            #message {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>mensagem para giovanna</h1>
+    
+    <div class="buttons">
+        <button id="sim" onclick="mostrarGif()">Ver</button>
+        <button id="nao" onclick="moverBotao()">Não quero ver</button>
+    </div>
+
+    <div id="gif">
+        <div id="message">fica bem gigica</div>
+        <img src="image.png" alt="Cachorrin">
+    </div>
+
+    <script>
+        const naoButton = document.getElementById('nao');
+
+        function moverBotao() {
+            const x = Math.random() * (window.innerWidth - naoButton.offsetWidth);
+            const y = Math.random() * (window.innerHeight - naoButton.offsetHeight);
+            naoButton.style.position = 'absolute';
+            naoButton.style.left = `${x}px`;
+            naoButton.style.top = `${y}px`;
+        }
+
+        function mostrarGif() {
+            document.getElementById('gif').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
